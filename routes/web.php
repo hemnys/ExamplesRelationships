@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('one-to-one-store','OneToOneController@storeOneToOne');
+Route::get('one-to-one','oneToOneController@oneToOne');
+Route::get('one-to-one-update','oneToOneController@updateOneToOne');
+Route::get('one-to-one-delete','oneToOneController@deleteOneToOne');
