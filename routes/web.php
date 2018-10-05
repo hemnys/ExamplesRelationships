@@ -22,6 +22,8 @@ Route::get('one-to-one-update','oneToOneController@updateOneToOne');
 Route::get('one-to-one-delete','oneToOneController@deleteOneToOne');
 
 Route::get('one-to-many-store','OneToManyController@storeOneToMany');
+Route::get('one-to-many-store-two','OneToManyController@storeOneToManyTwo');
 Route::get('one-to-many','oneToManyController@oneToMany');
+Route::get('one-to-many-two','oneToManyController@oneToManyTwo');
 Route::get('one-to-many-update','oneToManyController@updateOneToMany');
 Route::get('one-to-many-delete','oneToManyController@deleteOneToMany');

@@ -27,6 +27,23 @@ class OneToManyController extends Controller
 
     	return $insertStates;
     }
+    public function storeOneToManyTwo()
+    {
+        $country = Country::first();
+        $State = $country->states->first();
+        $cities = [
+            0 => [
+                'name' => 'San Bernardino', 
+            ],
+            1 => [
+                'name' => 'Altamira',
+            ]
+        ];
+
+        $insertCities = $State->cities()->createMany($cities);
+
+        return $insertCities;
+    }
     public function oneToMany()
     {
     	$country = Country::first();
@@ -39,13 +56,33 @@ class OneToManyController extends Controller
     }
     public function getStates($states)
     {
-    	foreach ($states as $key => $state) {
-    		$data[] = [
-    			'Estado' => $state->name."-".$state->initials
-    		];
-    	}
-    	return $data;
+        foreach ($states as $key => $state) {
+            $data[] = [
+                'Estado' => $state->name."-".$state->initials
+            ];
+        }
+        return $data;
     }
+    public function oneToManyTwo()
+    {
+        $country = Country::first();
+
+        $data = [
+            'Nombre del Pais' => $country->name,
+            'Ciudades' => $this->getCities($country->cities)
+        ]; 
+        return $data;
+    }
+    public function getCities($cities)
+    {
+        foreach ($cities as $key => $city) {
+            $data[] = [
+                'Ciudad' => $city->name,
+            ];
+        }
+        return $data;
+    }
+    
     public function updateOneToMany()
     {
     	$country = Country::first();
