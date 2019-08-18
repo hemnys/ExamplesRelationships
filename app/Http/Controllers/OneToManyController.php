@@ -99,6 +99,7 @@ class OneToManyController extends Controller
 
         $states = $country->states()->where('id', 1)->delete();
 
-        return 'Record Deleted';
+        return 'Record Deleteded';
     }
+
 }
